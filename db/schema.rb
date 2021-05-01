@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_01_143144) do
+ActiveRecord::Schema.define(version: 2021_05_01_222512) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 2021_05_01_143144) do
     t.integer "hp"
     t.integer "armor"
     t.integer "speed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "environments", force: :cascade do |t|
+    t.string "name"
+    t.text "ascii_model"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
