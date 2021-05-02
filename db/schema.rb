@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_01_222512) do
+ActiveRecord::Schema.define(version: 2021_05_02_002609) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_05_01_222512) do
     t.integer "speed"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["name"], name: "index_characters_on_name", unique: true
   end
 
   create_table "environments", force: :cascade do |t|
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_05_01_222512) do
     t.text "ascii_model"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["name"], name: "index_environments_on_name", unique: true
   end
 
   create_table "monsters", force: :cascade do |t|
@@ -39,6 +41,7 @@ ActiveRecord::Schema.define(version: 2021_05_01_222512) do
     t.integer "damage"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["name"], name: "index_monsters_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,6 +58,7 @@ ActiveRecord::Schema.define(version: 2021_05_01_222512) do
     t.boolean "ranged"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["name"], name: "index_weapons_on_name", unique: true
   end
 
 end
