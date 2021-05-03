@@ -9,7 +9,7 @@ module GameModules
       )
 
       # Main Menu
-      GameMenu.select({
+      GameMenu.select("Choose your option:", {
         "Return to Main Screen": method(:return_to_main),
         "Quit": method(:quit)
       })

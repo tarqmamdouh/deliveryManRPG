@@ -12,9 +12,9 @@ class GameMenu
   # Prompt to the console
   PROMPT = TTY::Prompt.new
 
-  def self.select(choices)
+  def self.select(message, choices)
     loop do
-      response = PROMPT.select("Welcome, choose your option:", choices.keys, active_color: :cyan) 
+      response = PROMPT.select(message, choices.keys, active_color: :cyan) 
       choices.each do |choice, callback|
         if response == choice
           callback.call

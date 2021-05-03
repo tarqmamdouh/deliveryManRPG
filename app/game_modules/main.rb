@@ -21,7 +21,7 @@ module GameModules
       )
 
       # Main Menu
-      GameMenu.select({
+      GameMenu.select("Welcome, choose your option:", {
         "New Game": method(:new_game),
         "About": method(:about),
         "Quit": method(:quit)
