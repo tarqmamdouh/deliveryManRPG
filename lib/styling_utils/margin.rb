@@ -1,6 +1,5 @@
 # Class to addd margin space to move the model in specific direction
-# console dimensions is  117 X 44
-# Inner window is 117 X 19
+# console dimensions is ApplicationWindow.dimensions
 class Margin
   def self.apply(ascii_model, direction, value)
     case direction.to_s

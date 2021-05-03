@@ -6,9 +6,9 @@ class DrawingEngine
   def self.game_layout
     system("clear")
     horizental_line
-    line_break(4)
+    line_break(2)
     yield
-    line_break(4)
+    line_break(2)
     horizental_line
   end
 

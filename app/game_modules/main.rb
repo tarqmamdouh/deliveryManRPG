@@ -6,11 +6,21 @@ module GameModules
       DrawingEngine.draw_with_animation(
         Loader.db_ascii_model(Environment, 'studio_logo'),
         'Fadein',
-        'bottom',
+        'top',
       )
 
       # wait 3 seconds for user to see the amazing logo
       sleep(3)
+
+      # show main screen
+      DrawingEngine.draw_with_animation(
+        Loader.db_ascii_model(Environment, 'main_screen'),
+        'Fadein',
+        'left',
+        0.01
+      )
+      sleep(1)
+
     end
   end
 end
