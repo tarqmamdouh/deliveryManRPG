@@ -4,13 +4,13 @@ module GameModules
   class Main
     def self.start
       # draw the amazing studio logo
-      Scene.play('studio_logo', 3 {
+      Scene.play('studio_logo', 3, {
         name: 'Fadein',
         direction: 'top'
       })
 
       # show main screen
-      Scene.play('main_screen', {
+      Scene.play('main_screen', 0, {
         name: 'Fadein',
         direction: 'right'
       })
@@ -24,9 +24,7 @@ module GameModules
     end
 
     def self.new_game
-      adventurer = Adventurer.new
-      binding.pry
-      # puts adventurer.character
+      GameModules::Levels::LevelOne.new
     end
 
     def self.about

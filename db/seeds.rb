@@ -12,9 +12,14 @@ Environment.create(name: 'main_screen', ascii_model: Loader.ascii_model('main_sc
 Environment.create(name: 'character_selection_screen', ascii_model: Loader.ascii_model('adventurer/character_selection_screen.txt'))
 Environment.create(name: 'weapon_selection_screen', ascii_model: Loader.ascii_model('weapons/weapon_selection_screen.txt'))
 
-
 # About Screen
 Environment.create(name: 'about_screen', ascii_model: Loader.ascii_model('about/about_screen.txt'))
+
+# Load Level Scenes
+Dir['db/seed/arts/scenes/*'].each do |path|
+    scene = File.basename(path, ".*")
+    Environment.create(name: scene, ascii_model: Loader.ascii_model("scenes/#{scene}.txt"))
+end
 
 # Secret Agent character
 Character.create(

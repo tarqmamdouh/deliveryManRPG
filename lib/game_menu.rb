@@ -23,4 +23,8 @@ class GameMenu
       end
     end
   end
+
+  def self.keypress(timeout=60)
+    PROMPT.keypress("Press any key to continue, resumes automatically in :countdown ...", timeout: timeout)
+  end
 end
