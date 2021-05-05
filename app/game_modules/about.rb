@@ -2,11 +2,10 @@ module GameModules
   class About
     def self.start
       # Show the about screen
-      DrawingEngine.draw_with_animation(
-        Loader.db_ascii_model(Environment, 'about_screen'),
-        'Fadein',
-        'bottom',
-      )
+      Scene.play('about_screen', {
+        name: 'fadein',
+        direction: 'bottom'
+      })
 
       # Main Menu
       GameMenu.select("Choose your option:", {

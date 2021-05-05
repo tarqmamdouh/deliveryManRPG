@@ -4,21 +4,19 @@ module GameModules
   class Main
     def self.start
       # draw the amazing studio logo
-      DrawingEngine.draw_with_animation(
-        Loader.db_ascii_model(Environment, 'studio_logo'),
-        'Fadein',
-        'top',
-      )
+      Scene.play('studio_logo', {
+        name: 'Fadein',
+        direction: 'top'
+      })
 
       # wait 3 seconds for user to see the amazing logo
       sleep(3)
 
       # show main screen
-      DrawingEngine.draw_with_animation(
-        Loader.db_ascii_model(Environment, 'main_screen'),
-        'Fadein',
-        'right',
-      )
+      Scene.play('main_screen', {
+        name: 'Fadein',
+        direction: 'right'
+      })
 
       # Main Menu
       GameMenu.select("Welcome, choose your option:", {

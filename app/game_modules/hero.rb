@@ -1,10 +1,10 @@
 module GameModules
     class Hero
         attr_reader :character
-        
+
         def initialize
             # Draw characters
-            DrawingEngine.draw(Loader.db_ascii_model(Environment, 'character_selection_screen'))
+            Scene.play('character_selection_screen')
             
             # Select one
             GameMenu.select("choose your delivery hero:", {

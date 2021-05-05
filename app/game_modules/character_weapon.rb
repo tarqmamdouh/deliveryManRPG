@@ -4,8 +4,8 @@ module GameModules
 
         def initialize
             # Draw weapons
-            DrawingEngine.draw(Loader.db_ascii_model(Environment, 'weapon_selection_screen'))
-            
+            Scene.play('weapon_selection_screen')
+                        
             # Select one
             GameMenu.select("choose your hero weapon:", {
                 "Rifle": method(:rifle),
