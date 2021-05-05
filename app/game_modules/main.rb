@@ -30,7 +30,8 @@ module GameModules
 
     def self.new_game
       adventurer = Adventurer.new
-      puts adventurer.character
+      binding.pry
+      # puts adventurer.character
     end
 
     def self.about

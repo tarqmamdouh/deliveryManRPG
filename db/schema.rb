@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_02_002609) do
+ActiveRecord::Schema.define(version: 2021_05_04_215300) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2021_05_02_002609) do
     t.boolean "ranged"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer "attack_speed"
     t.index ["name"], name: "index_weapons_on_name", unique: true
   end
 
