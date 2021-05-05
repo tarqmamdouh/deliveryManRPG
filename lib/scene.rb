@@ -2,6 +2,7 @@
 class Scene
     # play scene given from the database
     # name: (STRING) Name of the scene in the game database
+    # durartion: (Integer) Time duration to run the scene (with Seconds)
     # (optional) animation: (Hash) options with the following structure:-
     #   {
     #       name: (STRING) Animation name
@@ -9,7 +10,7 @@ class Scene
     #       speed: (FLOAT) Delay between each frame and other the lower the fastest, min value 0.05
     #               Otherwise flickering will happen 
     #   }
-    def self.play(name, animation={})
+    def self.play(name, duration=5, animation={})
         if animation.empty?
             DrawingEngine.draw(
                 Loader.db_ascii_model(Environment, name)
@@ -22,5 +23,6 @@ class Scene
                 animation[:speed] || 0.05
             )
         end
+        sleep(durartion)
     end
 end

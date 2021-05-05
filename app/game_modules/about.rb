@@ -2,7 +2,7 @@ module GameModules
   class About
     def self.start
       # Show the about screen
-      Scene.play('about_screen', {
+      Scene.play('about_screen', 0, {
         name: 'fadein',
         direction: 'bottom'
       })

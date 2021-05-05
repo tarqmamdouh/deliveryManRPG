@@ -4,13 +4,10 @@ module GameModules
   class Main
     def self.start
       # draw the amazing studio logo
-      Scene.play('studio_logo', {
+      Scene.play('studio_logo', 3 {
         name: 'Fadein',
         direction: 'top'
       })
-
-      # wait 3 seconds for user to see the amazing logo
-      sleep(3)
 
       # show main screen
       Scene.play('main_screen', {

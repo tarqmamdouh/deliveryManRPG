@@ -4,7 +4,7 @@ module GameModules
 
         def initialize
             # Draw weapons
-            Scene.play('weapon_selection_screen')
+            Scene.play('weapon_selection_screen', 0)
                         
             # Select one
             GameMenu.select("choose your hero weapon:", {
