@@ -8,4 +8,4 @@ require 'tty-prompt'
 require_all 'app'
 require_all 'lib'
 
-GameModules::Main.start
+GameModules::Main.main

@@ -9,6 +9,7 @@ binding.pry
 # Intro Arts
 Environment.create(name: 'studio_logo', ascii_model: Loader.ascii_model('main_screen/preload_logo.txt'))
 Environment.create(name: 'main_screen', ascii_model: Loader.ascii_model('main_screen/main_screen.txt'))
+Environment.create(name: 'game_over', ascii_model: Loader.ascii_model('main_screen/game_over.txt'))
 Environment.create(name: 'character_selection_screen', ascii_model: Loader.ascii_model('adventurer/character_selection_screen.txt'))
 Environment.create(name: 'weapon_selection_screen', ascii_model: Loader.ascii_model('weapons/weapon_selection_screen.txt'))
 

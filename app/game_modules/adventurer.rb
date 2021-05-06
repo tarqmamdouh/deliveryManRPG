@@ -10,5 +10,9 @@ module GameModules
             # Select Weapon
             @weapon = CharacterWeapon.new.weapon
         end
+
+        def dead?
+            @character.hp <= 0
+        end
     end
 end

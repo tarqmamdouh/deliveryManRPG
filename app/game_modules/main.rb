@@ -35,5 +35,10 @@ module GameModules
       system("clear")
       exit
     end
+
+    def self.game_over
+      Scene.play('game_over', 30, { name: 'Fadein',  direction: 'bottom', story: true})
+      start
+    end
   end
 end
