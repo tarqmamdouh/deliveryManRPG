@@ -7,11 +7,17 @@ class Scene
     #   {
     #       name: (STRING) Animation name
     #       direction: (STRING) direction of the animation
-    #       speed: (FLOAT) Delay between each frame and other the lower the fastest, min value 0.05
+    #      delay: (FLOAT) Delay between each frame and other the lower the fastest, min value 0.05
     #               Otherwise flickering will happen 
     #   }
-    def self.play(name, duration=60, animation={})
-        if animation.empty? || animation[:name].nil?
+    # (optional) args (HASH) contains name/value of varible to replace in ascii model
+    def self.play(name, duration=60, animation={}, args={})
+        if !args.empty?
+            DrawingEngine.draw_with_text(
+                Loader.db_ascii_model(Environment, name),
+                args
+            )
+        elsif animation[:name].nil?
             DrawingEngine.draw(
                 Loader.db_ascii_model(Environment, name)
             )
@@ -20,12 +26,12 @@ class Scene
                 Loader.db_ascii_model(Environment, name),
                 animation[:name] || 'Fadein',
                 animation[:direction] || 'top',
-                animation[:speed] || 0.05
+                animation[:delay] || 0.05
             )
         end
 
-        # check if it's story scene
-        if animation[:story]
+        # check if it's static scene
+        if animation[:static]
             GameMenu.keypress(duration)
         else
             sleep(duration)

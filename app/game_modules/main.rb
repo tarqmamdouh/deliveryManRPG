@@ -37,7 +37,7 @@ module GameModules
     end
 
     def self.game_over
-      Scene.play('game_over', 30, { name: 'Fadein',  direction: 'bottom', story: true})
+      Scene.play('game_over', 30, { name: 'Fadein',  direction: 'bottom', static: true})
       start
     end
   end

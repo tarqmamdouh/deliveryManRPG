@@ -2,6 +2,7 @@
 module GameModules
     module Levels
         class Level
+            attr_accessor :adventurer
             def initialize
                 # Scene of level starting
                 @adventurer = Adventurer.new

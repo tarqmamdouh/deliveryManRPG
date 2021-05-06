@@ -32,8 +32,23 @@ class DrawingEngine
   end
 
   # Uses draw with styles but with sequence
-  def self.draw_with_animation(ascii_model, name, direction, speed=0.05)
-    Animation.apply(ascii_model, name, direction, speed)
+  # ascii_model (STRING) contains ascii_art
+  # name (STRING) animation name
+  # name (STRING) animation direction top - bottom - left - right
+  #delay (INTEGER) Drawing delay between frames higher slower
+  def self.draw_with_animation(ascii_model, name, direction,delay=0.05)
+    Animation.apply(ascii_model, name, direction,delay)
+  end
+
+  # Draw the model with variables, replace them with given inputs
+  # ascii_model (STRING) contains ascii_art
+  # args (HASH) contains the arguments in the text to replace
+  def self.draw_with_text(ascii_model, args)
+    game_layout do
+      args.each {|name, val| ascii_model[name.to_s] = val unless ascii_model[name.to_s].nil?}
+      drawing_lines = ascii_model.split("\n")
+      puts drawing_lines
+    end
   end
 
   def self.line_break(number = 1)

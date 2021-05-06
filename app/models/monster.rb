@@ -3,9 +3,9 @@ class Monster < ActiveRecord::Base
         result = drawing_lines
         result << [" " * 120]
         result << { 
-            hp: hp, 
-            armor: armor,
-            damage: damage
+            hp: self.hp, 
+            armor: self.armor,
+            damage: self.damage
         }.map {|k, v| boxes_art(k.to_s, v)}
         result << ranged_art
     end
@@ -13,7 +13,7 @@ class Monster < ActiveRecord::Base
     private
     # load monster model art using database ascii_model
     def drawing_lines
-        ascii_model.split("\n")
+        self.ascii_model.split("\n")
     end
 
     # function to draw boxes art for the stats
@@ -36,6 +36,6 @@ class Monster < ActiveRecord::Base
     end
 
     def ranged_art
-        "        ranged : #{ranged ? '✔' : '✘'}"
+        "        ranged : #{self.ranged ? '✔' : '✘'}"
     end
 end
