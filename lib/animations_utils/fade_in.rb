@@ -3,26 +3,26 @@ class Fadein
   HORIZENTAL_STEPS = 100
   VERTICAL_STEPS = 14
 
-  def self.apply(ascii_model, direction, speed)
+  def self.apply(ascii_model, direction,delay)
     case direction
     when "top"
-      top(ascii_model, speed)
+      top(ascii_model,delay)
     when "bottom"
-      bottom(ascii_model, speed)
+      bottom(ascii_model,delay)
     when "left"
-      left(ascii_model, speed)
+      left(ascii_model,delay)
     when "right"
-      right(ascii_model, speed)
+      right(ascii_model,delay)
     else
       WARN "Error: invalid direction (#{direction})"
     end
   end
 
-  def self.top(ascii_model, speed)
+  def self.top(ascii_model,delay)
     # Initiate model outside container
     initial_model = ascii_model
     initial_position(ascii_model, "top")
-    sleep(speed)
+    sleep(delay)
     
     # animate model by re-render each step
     (1..VERTICAL_STEPS).each do |step|
@@ -31,14 +31,14 @@ class Fadein
           bottom: VERTICAL_STEPS - step
         }
       })
-      sleep(speed)
+      sleep(delay)
     end
   end
 
-  def self.left(ascii_model, speed)
+  def self.left(ascii_model,delay)
     # Initiate model outside container
     initial_position(ascii_model, "left")
-    sleep(speed)
+    sleep(delay)
         
     # animate model by re-render each step
     (1..HORIZENTAL_STEPS).each do |step|
@@ -47,14 +47,14 @@ class Fadein
           right: HORIZENTAL_STEPS - step
         }
       })
-      sleep(speed)
+      sleep(delay)
     end
   end
 
-  def self.right(ascii_model, speed)
+  def self.right(ascii_model,delay)
     # Initiate model outside container
     initial_position(ascii_model, "right")
-    sleep(speed)
+    sleep(delay)
         
     # animate model by re-render each step
     (1..HORIZENTAL_STEPS).each do |step|
@@ -63,14 +63,14 @@ class Fadein
           left: HORIZENTAL_STEPS - step
         }
       })
-      sleep(speed)
+      sleep(delay)
     end
   end
 
-  def self.bottom(ascii_model, speed)
+  def self.bottom(ascii_model,delay)
     # Initiate model outside container
     initial_position(ascii_model, "bottom")
-    sleep(speed)
+    sleep(delay)
         
     # animate model by re-render each step
     (1..VERTICAL_STEPS).each do |step|
@@ -79,7 +79,7 @@ class Fadein
           top: VERTICAL_STEPS - step
         }
       })
-      sleep(speed)
+      sleep(delay)
     end
   end
 
