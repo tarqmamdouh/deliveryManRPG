@@ -11,7 +11,7 @@ class Scene
     #               Otherwise flickering will happen 
     #   }
     def self.play(name, duration=60, animation={})
-        if animation.empty?
+        if animation.empty? || animation[:name].nil?
             DrawingEngine.draw(
                 Loader.db_ascii_model(Environment, name)
             )
