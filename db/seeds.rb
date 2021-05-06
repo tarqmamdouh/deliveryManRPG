@@ -21,6 +21,18 @@ Dir['db/seed/arts/scenes/*'].each do |path|
     Environment.create(name: scene, ascii_model: Loader.ascii_model("scenes/#{scene}.txt"))
 end
 
+# Load Monsters
+Dir['db/seed/arts/monsters/*'].each do |path|
+    monster = File.basename(path, ".*")
+    Monster.create(
+        name: monster, 
+        ascii_model: Loader.ascii_model("monsters/#{monster}.txt"),
+        hp: rand(40..100),
+        armor: rand(40..80),
+        damage: rand(60..100)
+    )
+end
+
 # Secret Agent character
 Character.create(
     name: 'agent', 
