@@ -1,0 +1,29 @@
+           
+     
+     
+    
+                        ____________
+                      .~      ,   . ~.
+                     /                \
+                    /      /~\/~\   ,  \
+                   |   .   \    /   '   |
+                   |         \/         |
+          XX       |  /~~\        /~~\  |       XX                          You fought well and killed the monster
+        XX  X      | |  o  \    /  o  | |      X  XX
+      XX     X     |  \____/    \____/  |     X     XX                      You lost :damage HP
+ XXXXX     XX      \         /\        ,/      XX     XXXXX             
+X        XX%;;@      \      /  \     ,/      @%%;XX        X                Your HP now: :current
+X       X  @%%;;@     |           '  |     @%%;;@  X       X
+X      X     @%%;;@   |. ` ; ; ; ;  ,|   @%%;;@     X      X
+ X    X        @%%;;@                  @%%;;@        X    X
+  X   X          @%%;;@              @%%;;@          X   X
+   X  X            @%%;;@          @%%;;@            X  X
+    XX X             @%%;;@      @%%;;@             X XX
+      XXX              @%%;;@  @%%;;@              XXX
+                         @%%;;%%;;@
+                           @%%;;@
+                         @%%;;@..@@
+                          @@@  @@@
+
+
+
