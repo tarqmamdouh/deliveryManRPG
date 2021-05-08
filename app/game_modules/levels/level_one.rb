@@ -5,7 +5,7 @@ module GameModules
             TIMEOUT = 90
             
             def initialize
-                # play_starting_scene
+                play_starting_scene
                 super
                 start
             end
