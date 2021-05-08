@@ -37,10 +37,11 @@ module GameModules
 
       def take_keys
         @adventurer.character.heal(20)
+        GameMenu.keypress(10)
         start_journey
       end
 
-      # this will end the game 🙊
+      # this will end the game
       def throw_food
         GameModules::Main.game_over
       end
@@ -49,12 +50,10 @@ module GameModules
         GameModules::Areas::Road.new @adventurer
       end
 
-      # This function should lead to 5 instances
-      # 1 - Mountains
-      # 2 - Tides of Time
-      # 3 - Deserted city
-      # 4 - Ghosts Forest
-      # 5 - Construction Area
+      # This function should lead to 3 instances
+      # 1 - Cave
+      # 2 - Desert
+      # 3 - Sea
       def resturant_frontdoor
         Scene.play('lvl01_06', 0)
         GameMenu.select('What are you going to do', {
