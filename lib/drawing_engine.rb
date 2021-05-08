@@ -14,10 +14,7 @@ class DrawingEngine
 
   def self.draw(ascii_model)
     game_layout do
-      drawing_lines = ascii_model.split("\n")
-      drawing_lines.each do |line|
-        puts line
-      end
+      puts ascii_model
     end
   end
 
@@ -25,9 +22,7 @@ class DrawingEngine
     game_layout do
       drawing_lines = ascii_model.split("\n")
       drawing_lines = Style.apply(drawing_lines, styles)
-      drawing_lines.each do |line|
-        puts line
-      end
+      puts drawing_lines
     end
   end
 
@@ -46,8 +41,7 @@ class DrawingEngine
   def self.draw_with_text(ascii_model, args)
     game_layout do
       args.each {|name, val| ascii_model[name.to_s] = val unless ascii_model[name.to_s].nil?}
-      drawing_lines = ascii_model.split("\n")
-      puts drawing_lines
+      puts ascii_model
     end
   end
 

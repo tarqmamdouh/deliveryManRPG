@@ -1,7 +1,7 @@
 require 'io/console'
 class ApplicationWindow
-    MIN_WIDTH = 130
-    MIN_HEIGHT = 42
+    MIN_WIDTH = 140
+    MIN_HEIGHT = 38
     def self.dimensions
         IO.console.winsize
     end
@@ -16,10 +16,18 @@ class ApplicationWindow
 
     def self.game_fits_console
         height, width = dimensions
-        if (height < MIN_HEIGHT || width > MIN_WIDTH) 
+        if (height < MIN_HEIGHT || width < MIN_WIDTH) 
             false
         else
             true
         end
+    end
+
+    def self.min_width
+        MIN_WIDTH
+    end
+
+    def self.min_height
+        MIN_HEIGHT
     end
 end
