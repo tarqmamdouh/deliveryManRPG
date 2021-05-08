@@ -44,13 +44,6 @@ ActiveRecord::Schema.define(version: 2021_05_04_215300) do
     t.index ["name"], name: "index_monsters_on_name", unique: true
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.integer "score"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "weapons", force: :cascade do |t|
     t.string "name"
     t.text "ascii_model"
