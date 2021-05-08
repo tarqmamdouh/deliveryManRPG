@@ -86,7 +86,7 @@ module GameModules
 
             def waterfall
                 dialog = "You found a cave behind the waterfall, you decided to enter. \n
-                Deadly Alligator appeard in your way you are standing now in front of it"
+                Deadly Alligator appeard in your way!"
                 
                 spawn_monster('alligator', dialog)
                 
@@ -126,15 +126,6 @@ module GameModules
                     "Continue Swimming": method(:swim_left),
                     "Get out from the cave": method(:swim),
                 })
-            end
-
-            # general method to initiate combat
-            def initiate_combat(min_damage, max_damage)
-                Combat.new(@adventurer, @monster, true) do |prop|
-                    win = rand(100) > (100 - (prop * 100))
-                    return @adventurer.character.bleed(rand(min_damage..max_damage)) if win
-                    @adventurer.character.damage(min_damage, "it was too strong, you lost the fight")
-                end
             end
 
             def explore
