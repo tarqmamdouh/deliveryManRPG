@@ -58,7 +58,7 @@ The game starting file is `delivery_man.rb` you should run ```ruby delivery_man.
 
 Please make your console in full screen for better playing experience
 
-# Run Tests
+## Run Tests
 
 * To run all tests 
 
