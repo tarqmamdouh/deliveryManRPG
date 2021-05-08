@@ -1,16 +1,17 @@
 # Gemfile
 source 'https://rubygems.org'
 
-gem 'require_all'
 gem 'activerecord'
+gem 'rake'
+gem 'require_all'
+gem 'rspec'
 gem 'sinatra-activerecord'
 gem 'sqlite3'
-gem 'rake'
-gem 'rspec'
 
 # console painting helpers
-gem "tty-prompt"
-gem "paint"
+gem 'paint'
+gem 'tty-prompt'
 
 # For debugging and tracing
 gem 'pry'
+gem 'rubocop', '~> 1.14'

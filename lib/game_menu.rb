@@ -1,5 +1,5 @@
 # Class intended to display game menu with options.
-# The menu depends on tty-prompt read documentation 
+# The menu depends on tty-prompt read documentation
 # https://github.com/piotrmurach/tty-prompt
 require 'tty-prompt'
 
@@ -14,7 +14,7 @@ class GameMenu
 
   def self.select(message, choices)
     loop do
-      response = PROMPT.select(message, choices.keys, active_color: :cyan) 
+      response = PROMPT.select(message, choices.keys, active_color: :cyan)
       choices.each do |choice, callback|
         if response == choice
           callback.call
@@ -24,7 +24,7 @@ class GameMenu
     end
   end
 
-  def self.keypress(timeout=60)
-    PROMPT.keypress("Press any key to continue, resumes automatically in :countdown ...", timeout: timeout)
+  def self.keypress(timeout = 60)
+    PROMPT.keypress('Press any key to continue, resumes automatically in :countdown ...', timeout: timeout)
   end
 end

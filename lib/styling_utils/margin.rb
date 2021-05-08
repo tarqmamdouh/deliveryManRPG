@@ -3,13 +3,13 @@
 class Margin
   def self.apply(ascii_model, direction, value)
     case direction.to_s
-    when "top"
+    when 'top'
       top(ascii_model, value)
-    when "bottom"
+    when 'bottom'
       bottom(ascii_model, value)
-    when "left"
+    when 'left'
       left(ascii_model, value)
-    when "right"
+    when 'right'
       right(ascii_model, value)
     else
       WARN "Error: invalid direction (#{direction})"
@@ -17,9 +17,9 @@ class Margin
   end
 
   def self.top(ascii_model, value)
-    (1..value).each do |step|
+    (1..value).each do |_step|
       # push empty line at the beginning
-      ascii_model.unshift([" " * 117])
+      ascii_model.unshift([' ' * 117])
 
       # remove last line from the model (cut-off)
       ascii_model.pop
@@ -27,10 +27,10 @@ class Margin
   end
 
   def self.left(ascii_model, value)
-    (1..value).each do |step|
+    (1..value).each do |_step|
       ascii_model.each do |line|
         # append empty character to the start of the line
-        line.insert(0, " ")
+        line.insert(0, ' ')
 
         # remove last element from the model (cut-off)
         line.chop!
@@ -39,22 +39,22 @@ class Margin
   end
 
   def self.right(ascii_model, value)
-    (1..value).each do |step|
+    (1..value).each do |_step|
       ascii_model.each do |line|
         # append empty character to the end of the line
-        line << " "
-        
+        line << ' '
+
         # remove first element from the model (cut-off)
-        line[0] = ""
+        line[0] = ''
       end
     end
   end
 
   def self.bottom(ascii_model, value)
-    (1..value).each do |step|
+    (1..value).each do |_step|
       # push empty line
-      ascii_model << [" " * 117]
-      
+      ascii_model << [' ' * 117]
+
       # remove existing line
       ascii_model.shift
     end

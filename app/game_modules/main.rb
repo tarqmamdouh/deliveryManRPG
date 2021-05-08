@@ -5,22 +5,22 @@ module GameModules
     def self.start
       # draw the amazing studio logo
       Scene.play('studio_logo', 3, {
-        name: 'Fadein',
-        direction: 'top'
-      })
+                   name: 'Fadein',
+                   direction: 'top'
+                 })
 
       # show main screen
       Scene.play('main_screen', 0, {
-        name: 'Fadein',
-        direction: 'right'
-      })
+                   name: 'Fadein',
+                   direction: 'right'
+                 })
 
       # Main Menu
-      GameMenu.select("Welcome, choose your option:", {
-        "New Game": method(:new_game),
-        "About": method(:about),
-        "Quit": method(:quit)
-      })
+      GameMenu.select('Welcome, choose your option:', {
+                        "New Game": method(:new_game),
+                        "About": method(:about),
+                        "Quit": method(:quit)
+                      })
     end
 
     def self.new_game
@@ -32,12 +32,12 @@ module GameModules
     end
 
     def self.quit
-      system("clear")
+      system('clear')
       exit
     end
 
     def self.game_over
-      Scene.play('game_over', 30, { name: 'Fadein',  direction: 'bottom', static: true})
+      Scene.play('game_over', 30, { name: 'Fadein', direction: 'bottom', static: true })
       start
     end
   end

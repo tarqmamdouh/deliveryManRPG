@@ -2,9 +2,8 @@
 require 'io/console'
 
 class DrawingEngine
-  
   def self.game_layout
-    system("clear")
+    system('clear')
     horizental_line
     line_break(2)
     yield
@@ -18,7 +17,7 @@ class DrawingEngine
     end
   end
 
-  def self.draw_with_styles(ascii_model, styles={})
+  def self.draw_with_styles(ascii_model, styles = {})
     game_layout do
       drawing_lines = ascii_model.split("\n")
       drawing_lines = Style.apply(drawing_lines, styles)
@@ -30,9 +29,9 @@ class DrawingEngine
   # ascii_model (STRING) contains ascii_art
   # name (STRING) animation name
   # name (STRING) animation direction top - bottom - left - right
-  #delay (INTEGER) Drawing delay between frames higher slower
-  def self.draw_with_animation(ascii_model, name, direction,delay=0.05)
-    Animation.apply(ascii_model, name, direction,delay)
+  # delay (INTEGER) Drawing delay between frames higher slower
+  def self.draw_with_animation(ascii_model, name, direction, delay = 0.05)
+    Animation.apply(ascii_model, name, direction, delay)
   end
 
   # Draw the model with variables, replace them with given inputs
@@ -40,7 +39,7 @@ class DrawingEngine
   # args (HASH) contains the arguments in the text to replace
   def self.draw_with_text(ascii_model, args)
     game_layout do
-      args.each {|name, val| ascii_model[name.to_s] = val unless ascii_model[name.to_s].nil?}
+      args.each { |name, val| ascii_model[name.to_s] = val unless ascii_model[name.to_s].nil? }
       puts ascii_model
     end
   end
@@ -50,7 +49,7 @@ class DrawingEngine
   end
 
   def self.horizental_line
-    _ , width = IO.console.winsize
-    puts ["=" * width]
+    _, width = IO.console.winsize
+    puts ['=' * width]
   end
 end

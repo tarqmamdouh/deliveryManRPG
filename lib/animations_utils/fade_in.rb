@@ -1,84 +1,83 @@
-# Fade in animation for 
+# Fade in animation for
 class Fadein
   HORIZENTAL_STEPS = 100
   VERTICAL_STEPS = 14
 
-  def self.apply(ascii_model, direction,delay)
+  def self.apply(ascii_model, direction, delay)
     case direction
-    when "top"
-      top(ascii_model,delay)
-    when "bottom"
-      bottom(ascii_model,delay)
-    when "left"
-      left(ascii_model,delay)
-    when "right"
-      right(ascii_model,delay)
+    when 'top'
+      top(ascii_model, delay)
+    when 'bottom'
+      bottom(ascii_model, delay)
+    when 'left'
+      left(ascii_model, delay)
+    when 'right'
+      right(ascii_model, delay)
     else
       WARN "Error: invalid direction (#{direction})"
     end
   end
 
-  def self.top(ascii_model,delay)
+  def self.top(ascii_model, delay)
     # Initiate model outside container
-    initial_model = ascii_model
-    initial_position(ascii_model, "top")
+    initial_position(ascii_model, 'top')
     sleep(delay)
-    
+
     # animate model by re-render each step
     (1..VERTICAL_STEPS).each do |step|
       DrawingEngine.draw_with_styles(ascii_model, {
-        margin: {
-          bottom: VERTICAL_STEPS - step
-        }
-      })
+                                       margin: {
+                                         bottom: VERTICAL_STEPS - step
+                                       }
+                                     })
       sleep(delay)
     end
   end
 
-  def self.left(ascii_model,delay)
+  def self.left(ascii_model, delay)
     # Initiate model outside container
-    initial_position(ascii_model, "left")
+    initial_position(ascii_model, 'left')
     sleep(delay)
-        
+
     # animate model by re-render each step
     (1..HORIZENTAL_STEPS).each do |step|
       DrawingEngine.draw_with_styles(ascii_model, {
-        margin: {
-          right: HORIZENTAL_STEPS - step
-        }
-      })
+                                       margin: {
+                                         right: HORIZENTAL_STEPS - step
+                                       }
+                                     })
       sleep(delay)
     end
   end
 
-  def self.right(ascii_model,delay)
+  def self.right(ascii_model, delay)
     # Initiate model outside container
-    initial_position(ascii_model, "right")
+    initial_position(ascii_model, 'right')
     sleep(delay)
-        
+
     # animate model by re-render each step
     (1..HORIZENTAL_STEPS).each do |step|
       DrawingEngine.draw_with_styles(ascii_model, {
-        margin: {
-          left: HORIZENTAL_STEPS - step
-        }
-      })
+                                       margin: {
+                                         left: HORIZENTAL_STEPS - step
+                                       }
+                                     })
       sleep(delay)
     end
   end
 
-  def self.bottom(ascii_model,delay)
+  def self.bottom(ascii_model, delay)
     # Initiate model outside container
-    initial_position(ascii_model, "bottom")
+    initial_position(ascii_model, 'bottom')
     sleep(delay)
-        
+
     # animate model by re-render each step
     (1..VERTICAL_STEPS).each do |step|
       DrawingEngine.draw_with_styles(ascii_model, {
-        margin: {
-          top: VERTICAL_STEPS - step
-        }
-      })
+                                       margin: {
+                                         top: VERTICAL_STEPS - step
+                                       }
+                                     })
       sleep(delay)
     end
   end
@@ -87,30 +86,30 @@ class Fadein
   # expected positions: 'left', 'top', 'right', 'bottom'
   def self.initial_position(ascii_model, position)
     case position
-    when "top"
+    when 'top'
       DrawingEngine.draw_with_styles(ascii_model, {
-        margin: {
-          bottom: VERTICAL_STEPS
-        }
-      })
-    when "bottom"
+                                       margin: {
+                                         bottom: VERTICAL_STEPS
+                                       }
+                                     })
+    when 'bottom'
       DrawingEngine.draw_with_styles(ascii_model, {
-        margin: {
-          top: VERTICAL_STEPS
-        }
-      })
-    when "left"
+                                       margin: {
+                                         top: VERTICAL_STEPS
+                                       }
+                                     })
+    when 'left'
       DrawingEngine.draw_with_styles(ascii_model, {
-        margin: {
-          right: HORIZENTAL_STEPS
-        }
-      })
-    when "right"
+                                       margin: {
+                                         right: HORIZENTAL_STEPS
+                                       }
+                                     })
+    when 'right'
       DrawingEngine.draw_with_styles(ascii_model, {
-        margin: {
-          left: HORIZENTAL_STEPS
-        }
-      })
+                                       margin: {
+                                         left: HORIZENTAL_STEPS
+                                       }
+                                     })
     else
       WARN "Error: invalid positon (#{direction})"
     end

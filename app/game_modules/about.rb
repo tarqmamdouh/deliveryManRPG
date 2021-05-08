@@ -3,15 +3,15 @@ module GameModules
     def self.start
       # Show the about screen
       Scene.play('about_screen', 0, {
-        name: 'fadein',
-        direction: 'bottom'
-      })
+                   name: 'fadein',
+                   direction: 'bottom'
+                 })
 
       # Main Menu
-      GameMenu.select("Choose your option:", {
-        "Return to Main Screen": method(:return_to_main),
-        "Quit": method(:quit)
-      })
+      GameMenu.select('Choose your option:', {
+                        "Return to Main Screen": method(:return_to_main),
+                        "Quit": method(:quit)
+                      })
     end
 
     def self.return_to_main
@@ -19,7 +19,7 @@ module GameModules
     end
 
     def self.quit
-      system("clear")
+      system('clear')
       exit
     end
   end
