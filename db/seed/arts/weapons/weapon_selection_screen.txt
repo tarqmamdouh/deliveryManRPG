@@ -27,4 +27,4 @@
                                           ||                                              ||     
     Damage     : ⬛⬛⬛⬜⬜ 170           ||         Damage     : ⬛⬛⬛⬛⬛ 240          ||         Damage     : ⬛⬛⬜⬜⬜ 120    
     Atk. speed : ⬛⬛⬛⬜⬜ 60            ||         Atk. speed : ⬛⬛⬜⬜⬜ 40           ||         Atk. speed : ⬛⬛⬛⬛⬛ 95     
-    Ranged:           ✔                   ||          Ranged:           ✔                 ||          Ranged:           ✔    
+    Ranged:           ✔                   ||          Ranged:           ✘                 ||          Ranged:           ✘    
