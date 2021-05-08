@@ -4,12 +4,11 @@ require 'require_all'
 require_all './app/models'
 require './lib/loader'
 
-binding.pry
-
 # Intro Arts
 Environment.create(name: 'studio_logo', ascii_model: Loader.ascii_model('main_screen/preload_logo.txt'))
 Environment.create(name: 'main_screen', ascii_model: Loader.ascii_model('main_screen/main_screen.txt'))
 Environment.create(name: 'game_over', ascii_model: Loader.ascii_model('main_screen/game_over.txt'))
+Environment.create(name: 'credits', ascii_model: Loader.ascii_model('main_screen/credits.txt'))
 Environment.create(name: 'character_selection_screen', ascii_model: Loader.ascii_model('adventurer/character_selection_screen.txt'))
 Environment.create(name: 'weapon_selection_screen', ascii_model: Loader.ascii_model('weapons/weapon_selection_screen.txt'))
 
@@ -18,19 +17,21 @@ Environment.create(name: 'about_screen', ascii_model: Loader.ascii_model('about/
 
 # Load Level Scenes
 Dir['db/seed/arts/scenes/*'].each do |path|
-    scene = File.basename(path, ".*")
-    Environment.create(name: scene, ascii_model: Loader.ascii_model("scenes/#{scene}.txt"))
+    name = File.basename(path, ".*")
+    Environment.create(name: name, ascii_model: Loader.ascii_model("scenes/#{name}.txt"))
 end
 
 # Load Monsters
 Dir['db/seed/arts/monsters/*'].each do |path|
-    monster = File.basename(path, ".*")
+    name = File.basename(path, ".*")
+    ascii_model = Loader.ascii_model("monsters/#{name}.txt").split("\n")
+    stats = ascii_model.shift.split('!')
     Monster.create(
-        name: monster, 
-        ascii_model: Loader.ascii_model("monsters/#{monster}.txt"),
-        hp: rand(40..100),
-        armor: rand(40..80),
-        damage: rand(60..100)
+        name: name, 
+        ascii_model: ascii_model.join("\n"),
+        hp: stats[0].to_i,
+        armor: stats[1].to_i,
+        damage: stats[2].to_i
     )
 end
 

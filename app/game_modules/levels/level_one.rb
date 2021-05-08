@@ -46,6 +46,7 @@ module GameModules
             end
 
             def start_journey
+                GameModules::Areas::Road.new @adventurer
             end
 
             # This function should lead to 5 instances

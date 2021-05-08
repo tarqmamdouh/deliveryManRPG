@@ -4,18 +4,28 @@ class Character < ActiveRecord::Base
     end
 
     def heal(amount)
-        Scene.play('heal', 0, {},{
-            ":heal": amount.to_s,
-            ":current": self.hp
-            })
         self.hp += amount
+        Scene.play('heal', 0, {}, {
+            ":heal": amount.to_s,
+            ":current": self.hp.to_s
+            })
     end
 
-    def damage(amount)
+    def damage(amount, message="")
+        self.hp -= amount
         Scene.play('damage', 0, {}, {
+            ":message": message,
             ":damage": amount.to_s,
-            ":current": self.hp
-            })
-        hp -= amount
+            ":current": self.hp.to_s
+        })
+    end
+
+    def bleed(amount, message="")
+        self.hp -= amount
+        Scene.play('bleed', 0, {}, {
+            ":message": message,
+            ":damage": amount.to_s,
+            ":current": self.hp.to_s
+        })
     end
 end
